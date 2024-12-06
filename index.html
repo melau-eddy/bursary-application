@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bursary Application Dashboard</title>
+    <style>
+        /* Reset default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Set the background color and text properties */
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Styling for header and navigation bar */
+        header {
+            background-color: #222;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+            position: relative;
+            padding: 10px;
+            transition: color 0.3s, padding-bottom 0.3s;
+        }
+
+        /* Hover effect on navigation links */
+        nav ul li a:hover {
+            color: #f00;
+            padding-bottom: 15px;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #f00;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+
+        nav ul li a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        /* Main content styling */
+        .main-content {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .welcome-message h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .welcome-message p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+        }
+
+        /* Info cards section */
+        .info-cards {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+
+        .card {
+            background-color: #333;
+            width: 250px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        }
+
+        .card h2 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #f00;
+        }
+
+        .card p {
+            font-size: 1.1em;
+        }
+
+        /* Contact Info Section */
+        #contact-info {
+            display: none;
+            padding: 40px;
+            background-color: #222;
+            text-align: center;
+        }
+
+        #contact-info .contact-container {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        #contact-info a {
+            color: #f00;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #222;
+            color: #fff;
+        }
+
+        form button {
+            background-color: #f00;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #ff4d4d;
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .info-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Hidden class */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#" class="nav-link" id="home">Home</a></li>
+                <li><a href="#" class="nav-link" id="contact">Contacts</a></li>
+                <li><a href="#" class="nav-link" id="sign-in-link">Sign In</a></li>
+                <li><a href="#" class="nav-link" id="sign-up-link">Sign Up</a></li>
+                <li><a href="#">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main content section -->
+    <section id="welcome-section" class="main-content">
+        <div class="welcome-message">
+            <h1>Welcome to the Bursary Application Dashboard</h1>
+            <p>Your future starts here. Apply now and make your dreams come true.</p>
+        </div>
+
+        <div class="info-cards">
+            <div class="card">
+                <h2>Application Process</h2>
+                <p>Step-by-step guide on how to apply for the bursary.</p>
+            </div>
+            <div class="card">
+                <h2>Eligibility</h2>
+                <p>Check the eligibility criteria for the bursary.</p>
+            </div>
+            <div class="card">
+                <h2>Deadlines</h2>
+                <p>Don't miss the important deadlines for your application.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Info Section -->
+    <section id="contact-info" class="hidden">
+        <div class="contact-container">
+            <h2>Contact Us</h2>
+            <p>If you have any questions, feel free to reach out to us:</p>
+            <p>Email: <a href="mailto:cal.abraham.hope@gmail.com">cal.abraham.hope@gmail.com</a></p>
+        </div>
+    </section>
+
+    <!-- Sign In Section -->
+    <section id="sign-in-section" class="hidden">
+        <div class="form-container">
+            <h2>Sign In</h2>
+            <form id="sign-in-form">
+                <label for="email">Email:</label>
+                <input type="email" id="sign-in-email" placeholder="Enter your email" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="sign-in-password" placeholder="Enter your password" required>
+
+                <button type="submit">Sign In</button>
+                <p><a href="#" id="forgot-password-link">Forgot password?</a></p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Forgot Password Section -->
+    <section id="forgot-password-section" class="hidden">
+        <div class="form-container">
+            <h2>Forgot Password</h2>
+            <p>Enter your email to receive a password reset link.</p>
+            <form id="forgot-password-form">
+                <label for="reset-email">Email:</label>
+                <input type="email" id="reset-email" placeholder="Enter your email" required>
+
+                <button type="submit">Reset Password</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Sign Up Section -->
+    <section id="sign-up-section" class="hidden">
+        <div class="form-container">
+            <h2>Sign Up</h2>
+            <form id="sign-up-form">
+                <label for="sign-up-email">Email:</label>
+                <input type="email" id="sign-up-email" placeholder="Enter your email" required>
+
+                <label for="sign-up-password">Password:</label>
+                <input type="password" id="sign-up-password" placeholder="Create a password" required>
+
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Bursary Application. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Show home section
+        document.getElementById('home').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('welcome-section').classList.remove('hidden');
+            document.getElementById('sign-in-section').classList.add('hidden');
+            document.getElementById('sign-up-section').classList.add('hidden');
+            document.getElementById('forgot-password-section').classList.add('hidden');
+            document.getElementById('contact-info').classList.add('hidden');
+        });
+
+        // Show contact info section
+        document.getElementById('contact').addEventListener('click', function(event) {
+            event.preventDefault();
+            const contactSection = document.getElementById('contact-info');
+            
+            if (contactSection.style.display === 'none' || contactSection.style.display === '') {
+                contactSection.style.display = 'block';
+                document.getElementById('welcome-section').classList.add('hidden');
+            } else {
+                contactSection.style.display = 'none';
+                document.getElementById('welcome-section').classList.remove('hidden');
+            }
+        });
+
+        // Toggle between Sign In and Sign Up forms
+        document.getElementById('sign-in-link').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('sign-in-section').classList.remove('hidden');
+            document.getElementById('sign-up-section').classList.add('hidden');
+            document.getElementById('forgot-password-section').classList.add('hidden');
+        });
+
+        document.getElementById('sign-up-link').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('sign-up-section').classList.remove('hidden');
+            document.getElementById('sign-in-section').classList.add('hidden');
+            document.getElementById('forgot-password-section').classList.add('hidden');
+        });
+
+        // Show Forgot Password form
+        document.getElementById('forgot-password-link').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('forgot-password-section').classList.remove('hidden');
+            document.getElementById('sign-in-section').classList.add('hidden');
+        });
+
+        // Reset password
+        document.getElementById('forgot-password-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('reset-email').value;
+            alert(`Password reset link sent to: ${email}`);
+        });
+    </script>
+</body>
+
+</html>
